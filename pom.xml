@@ -37,12 +37,15 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- junit5 사용시 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.0.0-M5</version>
             <scope>test</scope>
         </dependency>
+        <!-- junit5 사용시 -->
+
         <!-- Jdk8 사용시 -->
         <dependency>
             <groupId>org.slf4j</groupId>
