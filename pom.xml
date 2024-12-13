@@ -38,12 +38,11 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.0.0-M5</version>
             <scope>test</scope>
         </dependency>
-
         <!-- Jdk8 사용시 -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -56,6 +55,15 @@
             <version>1.7.25</version>
         </dependency>
         <!-- Jdk8 사용시 -->
+
+        <!-- junit4 사용시 -->
+        <!--        <dependency>-->
+        <!--            <groupId>junit</groupId>-->
+        <!--            <artifactId>junit</artifactId>-->
+        <!--            <version>4.13.2</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!-- junit4 사용시 -->
 
         <!-- Jdk11 사용시 -->
 <!--        <dependency>

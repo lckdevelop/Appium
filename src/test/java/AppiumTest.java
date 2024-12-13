@@ -1,8 +1,8 @@
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.options.BaseOptions;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
@@ -15,9 +15,9 @@ import java.util.Arrays;
 
 public class AppiumTest {
 
-    private IOSDriver driver;
+    private static IOSDriver driver;
 
-    private URL getUrl() {
+    private static URL getUrl() {
         try {
             return new URL("http://127.0.0.1:4723");
         } catch (MalformedURLException e) {
@@ -26,9 +26,13 @@ public class AppiumTest {
         return null;
     }
 
-    // 초기 세팅
-    @Before
-    public void setUp() {
+    /*
+    * 테스팅 시뮬레이터 초기 세팅
+    * @BeforeAll : 현재 클래스의 모든 테스트 메서드 실행 이전에 한 번만 실행
+    *
+    * */
+    @BeforeAll
+    public static void setUp() {
         BaseOptions options = new BaseOptions()
                 .amend("platformName", "ios")
                 .amend("appium:automationName", "XCUITest")
@@ -39,13 +43,11 @@ public class AppiumTest {
                 .amend("appium:newCommandTimeout", 3600)
                 .amend("appium:connectHardwareKeyboard", true);
 
-        driver = new IOSDriver(this.getUrl(), options); // ios driver 실행(앱 실행)
+        driver = new IOSDriver(AppiumTest.getUrl(), options); // ios driver 실행(앱 실행)
     }
 
-
-
     @Test
-    public void sampleTest() {
+    public void initLoadAndGoHomeTest() {
         try {
             // 5초(5000 밀리초) 동안 대기
             Thread.sleep(3000);
@@ -83,7 +85,10 @@ public class AppiumTest {
         tap2.addAction(new Pause(finger2, Duration.ofMillis(50)));
         tap2.addAction(finger2.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(tap2));
+    }
 
+    @Test
+    public void hpointloginTest() {
         // 본인인증 로그인 창
         final PointerInput finger3 = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Point tapPoint3 = new Point(199, 221);
@@ -117,13 +122,14 @@ public class AppiumTest {
         tap5.addAction(finger5.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(tap5));
 
-
-
     }
 
-    // 앱 종료
-    @After
-    public void tearDown() {
+    /*
+    * 테스팅 시뮬레이터 종료
+    * 현재 클래스의 모든 테스트 메소드 실행 이후에 한번만 실행
+    * */
+    @AfterAll
+    public static void tearDown() {
         driver.quit();
     }
 }
