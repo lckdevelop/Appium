@@ -1,4 +1,4 @@
-package common.util;
+package com.hdapp.appium.global.util;
 
 public class CommonFunction {
 
