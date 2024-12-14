@@ -1,6 +1,6 @@
 package com.hdapp.appium.domain.login;
 
-import com.hdapp.appium.global.common.OsDriverConnector;
+import com.hdapp.appium.global.common.OsDriverConnectorImpl;
 import com.hdapp.appium.global.util.CommonFunction;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.ios.IOSDriver;
@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class HpointIdPwLoginTest {
     private static IOSDriver driver;
+    private static OsDriverConnectorImpl osDriverConnector;
     private CommonFunction commonFunction = new CommonFunction();
     /*
     * 테스팅 시뮬레이터 초기 세팅
@@ -22,7 +23,16 @@ public class HpointIdPwLoginTest {
     public static void setUp() {
         //driver = OsDriverConnector.iosSetUp("iPhone 16", "18.0");
         //driver = OsDriverConnector.iosSetUp("iPhone 15", "17.0");
-        driver = OsDriverConnector.iosSetUp("iPhone 13 mini", "16.0");
+
+        try {
+            if (osDriverConnector == null) {
+                osDriverConnector = new OsDriverConnectorImpl();  // 객체 생성
+            }
+
+            driver = osDriverConnector.setUp("iPhone 13 mini", "16.0");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
