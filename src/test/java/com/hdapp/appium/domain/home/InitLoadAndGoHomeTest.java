@@ -3,16 +3,16 @@ package com.hdapp.appium.domain.home;
 import com.hdapp.appium.global.common.OsDriverConnectorImpl;
 import com.hdapp.appium.global.util.CommonFunction;
 import io.appium.java_client.ios.IOSDriver;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 public class InitLoadAndGoHomeTest {
     private static IOSDriver driver;
     private static OsDriverConnectorImpl osDriverConnector;
     private CommonFunction commonFunction = new CommonFunction();
 
-    @BeforeAll
+    @BeforeSuite
     public static void setUp() {
         try {
             if (osDriverConnector == null) {

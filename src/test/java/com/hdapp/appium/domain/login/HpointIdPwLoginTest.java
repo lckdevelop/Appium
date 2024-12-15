@@ -4,12 +4,12 @@ import com.hdapp.appium.global.common.OsDriverConnectorImpl;
 import com.hdapp.appium.global.util.CommonFunction;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.ios.IOSDriver;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 public class HpointIdPwLoginTest {
     private static IOSDriver driver;
@@ -19,7 +19,7 @@ public class HpointIdPwLoginTest {
     * 테스팅 시뮬레이터 초기 세팅
     * @BeforeAll : 현재 클래스의 모든 테스트 메서드 실행 이전에 한 번만 실행
     * */
-    @BeforeAll
+    @BeforeSuite
     public static void setUp() {
         //driver = OsDriverConnector.iosSetUp("iPhone 16", "18.0");
         //driver = OsDriverConnector.iosSetUp("iPhone 15", "17.0");
@@ -108,7 +108,7 @@ public class HpointIdPwLoginTest {
                 actions.click(bannerPlayBtn);
                 actions.perform();
 
-                commonFunction.getTerm(5000);
+                commonFunction.getTerm(10000);
 
                 // 	배너 정지 버튼
                 WebElement bannerStopBtn = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[4]/XCUIElementTypeImage"));
@@ -301,7 +301,7 @@ public class HpointIdPwLoginTest {
     * 테스팅 시뮬레이터 종료
     * AfterAll : 현재 클래스의 모든 테스트 메소드 실행 이후에 한번만 실행
     * */
-    @AfterAll
+    @AfterSuite
     public static void tearDown() {
         driver.quit();
     }

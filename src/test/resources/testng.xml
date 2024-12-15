@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="MySuite" verbose="1" parallel="false">
+    <listeners>
+        <listener class-name="com.hdapp.appium.global.util.CustomTestListener" />
+    </listeners>
+
+    <test name="HpointIdPwLoginTest">
+        <classes>
+            <class name="com.hdapp.appium.domain.login.HpointIdPwLoginTest" />
+        </classes>
+    </test>
+
+    <test name="InitLoadAndGoHomeTest">
+        <classes>
+            <class name="com.hdapp.appium.domain.home.InitLoadAndGoHomeTest" />
+        </classes>
+    </test>
+</suite>

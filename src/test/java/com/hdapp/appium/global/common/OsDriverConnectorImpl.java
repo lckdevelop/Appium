@@ -46,21 +46,17 @@ public class OsDriverConnectorImpl implements OsDriverConnector {
 
     @Override
     public IOSDriver setUp(String deviceName, String osVersion) {
-        return iosSetUp(deviceName, osVersion);
-    }
-
-    private IOSDriver iosSetUp(String deviceName, String osVersion) {
-        System.out.println(platformName);
-        System.out.println(automationName);
-        System.out.println(deviceName);
-        System.out.println(osVersion);
-        System.out.println(app);
-        System.out.println(includeSafariInWebviews);
-        System.out.println(newCommandTimeout);
-        System.out.println(connectHardwareKeyboard);
+//        System.out.println(platformName);
+//        System.out.println(automationName);
+//        System.out.println(deviceName);
+//        System.out.println(osVersion);
+//        System.out.println(app);
+//        System.out.println(includeSafariInWebviews);
+//        System.out.println(newCommandTimeout);
+//        System.out.println(connectHardwareKeyboard);
 
         BaseOptions options = new BaseOptions()
-                .amend("platformName", platformName)
+                .amend("platformName", "ios")
                 .amend("appium:automationName", "XCUITest")
                 .amend("appium:deviceName", deviceName)
                 .amend("appium:platformVersion", osVersion)
@@ -71,4 +67,5 @@ public class OsDriverConnectorImpl implements OsDriverConnector {
 
         return new IOSDriver(getUrl(), options); // ios driver 실행(앱 실행)
     }
+
 }
