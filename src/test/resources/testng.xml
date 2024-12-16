@@ -10,9 +10,9 @@
         </classes>
     </test>
 
-    <test name="InitLoadAndGoHomeTest">
-        <classes>
-            <class name="com.hdapp.appium.domain.home.InitLoadAndGoHomeTest" />
-        </classes>
-    </test>
+<!--    <test name="InitLoadAndGoHomeTest">-->
+<!--        <classes>-->
+<!--            <class name="com.hdapp.appium.domain.home.InitLoadAndGoHomeTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

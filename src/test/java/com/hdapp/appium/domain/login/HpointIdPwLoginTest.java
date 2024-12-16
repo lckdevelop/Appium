@@ -80,12 +80,14 @@ public class HpointIdPwLoginTest {
 //        actions.perform();
 
 
-        commonFunction.getTerm(3000);
+        commonFunction.getTerm(4000);
 
         // 	팝업 닫기 버튼
         WebElement popupCloseBtn = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"닫기\"`]"));
         actions.click(popupCloseBtn);
         actions.perform();
+
+        commonFunction.getTerm(1000);
 
         // 	배너 정지 버튼
         WebElement bannerStopBtn = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeImage[`name == \"iconIndicatorStop12Black\"`]"));
@@ -103,11 +105,12 @@ public class HpointIdPwLoginTest {
 
                 break;
             } catch (NoSuchElementException e) {
+                commonFunction.getTerm(1000);
                 // 	배너 재생 버튼
                 WebElement bannerPlayBtn = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[4]/XCUIElementTypeImage"));
+
                 actions.click(bannerPlayBtn);
                 actions.perform();
-
                 commonFunction.getTerm(10000);
 
                 // 	배너 정지 버튼
@@ -287,6 +290,12 @@ public class HpointIdPwLoginTest {
 
         commonFunction.getTerm(3000);
 
+        // 마케팅 알림 동의 버튼
+        WebElement marketingBtn = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"마케팅 알림 동의\"`]"));
+        actions.click(marketingBtn);
+        actions.perform();
+
+        commonFunction.getTerm(4000);
         // 	팝업 닫기 버튼
         WebElement popupCloseBtn = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"닫기\"`]"));
         actions.click(popupCloseBtn);
